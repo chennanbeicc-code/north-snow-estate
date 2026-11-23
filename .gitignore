@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.sites-runtime/
+.pnpm-store/
+.env.local
+
+.env
+.env.*
+.wrangler/
+.dev.vars
+.dev.vars.*

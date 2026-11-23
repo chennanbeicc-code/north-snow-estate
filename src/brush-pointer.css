@@ -1,0 +1,18 @@
+@media (any-hover: hover) and (any-pointer: fine) {
+  html.north-brush { --brush-cursor: url('./brush-nib.svg') 2 2; cursor: var(--brush-cursor), default; }
+  html.north-brush :is(body,main,dialog,.photo-viewport,.photo-viewport.dragging,.ch-viewport,.tile.text) { cursor: var(--brush-cursor), default; }
+  html.north-brush .fig .pic { cursor: var(--brush-cursor), zoom-in; }
+  html.north-brush :is(button:enabled,a[href],input[type=range],[role=button],[draggable=true]) { cursor: var(--brush-cursor), pointer; }
+  html.north-brush :is(input:not([type=range]),textarea,[contenteditable=true]) { cursor: text; }
+}
+.brush-atmosphere { position: fixed; inset: 0; z-index: 2147483647; overflow: hidden; pointer-events: none; }
+.brush-atmosphere, .brush-atmosphere * { pointer-events: none; }
+.brush-light, .brush-wisp { position: absolute; top: 0; left: 0; }
+.brush-light {
+  width: 58px; height: 58px; margin: -29px;
+  background: radial-gradient(circle, #e7fff557 0%, #8adbc22b 23%, #afd4c414 45%, transparent 70%);
+}
+.brush-wisp {
+  width: 34px; height: 19px; margin: -9px -17px; opacity: 0;
+  background: radial-gradient(ellipse at 40% 50%, #e6f6eda6 0%, #b8ded18c 16%, #9aced34a 42%, transparent 69%);
+}

@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'North Brush';
+  src: url('./ink-font/farewell.woff2') format('woff2');
+  font-display: swap;
+}
+.ink-farewell {
+  position: fixed; inset: 0; display: grid; place-items: center;
+  pointer-events: none;
+  font-family: STXingkai, "华文行楷", "North Brush", KaiTi, serif;
+}
+.ink-columns {
+  display: flex; flex-direction: row-reverse; justify-content: center;
+  align-items: flex-start; gap: .48em;
+}
+.ink-column { display: flex; flex-direction: column; writing-mode: horizontal-tb; }
+.ink-glyph {
+  display: grid; place-items: center; width: 1em; height: 1.17em;
+  writing-mode: vertical-rl; line-height: 1; font-weight: 400;
+  animation: ink-arrives 540ms ease-out var(--arrive) both,
+    ink-disperses 1s ease-in calc(var(--disperse-at) + var(--linger)) forwards;
+}
+.ink-transcript { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+dialog.album-farewell[open] {
+  position: fixed; inset: 0; margin: 0; width: 100%; height: 100%;
+  max-width: none; max-height: none; background: transparent; border: 0; padding: 0;
+  box-shadow: none; overflow: hidden; pointer-events: auto;
+}
+.album-farewell::backdrop { background: rgb(22 16 12 / 65%); }
+.ink-album .ink-leaf {
+  position: relative; pointer-events: auto; color: #39291c;
+  padding: 1.45em 1.14em 2em; font-size: clamp(18px,min(7.25vw,6.4svh),46px);
+  background: linear-gradient(90deg,#b69b68 0%,#e8d6af 1.4%,#f5e8c9 9%,#f0e1be 47%,#e3cea4 50%,#efe0bc 53%,#f4e6c7 89%,#dfc798 99%,#b69b68);
+  border-block: 3px double #aa8a56; box-shadow: 0 12px 48px #130b0780;
+  animation: unfold-leaf .65s ease-out both, fold-leaf .85s ease-in calc(var(--disperse-at) + .4s) forwards;
+}
+.ink-album .ink-columns { gap: .37em; }
+.ink-album .dedication { font-size: .65em; color: #71533a; }
+.ink-album .dedication:nth-child(2) { margin-left: .65em; border-left: 1px solid #af8e5977; padding-left: .65em; }
+.ink-album .ink-close {
+  position: absolute; bottom: .75em; left: 1.5em; padding: .22em .5em;
+  font: 20px/1.2 STXingkai,"华文行楷","North Brush",KaiTi,serif;
+  color: #893e2c; border: 1px solid #9f5a45; border-radius: 2px; background: transparent;
+}
+.ink-close:focus-visible { outline: 2px solid #823e2c; outline-offset: 3px; }
+.ink-well { z-index: 12; background: transparent; }
+.ink-well .ink-leaf {
+  font-size: clamp(19px,min(6.9vw,6.4svh),49px); color: #dcfff7;
+  -webkit-text-stroke: 1.8px #102f36; paint-order: stroke fill;
+  text-shadow: 0 1px 1px #0b2229, 0 2px 4px #0a2028, 0 2px 9px #07191ee6;
+}
+.ink-well .well-inscription {
+  font-size: .64em; letter-spacing: .05em; margin-left: .55em; color: #a3f1da;
+}
+@keyframes ink-arrives { from { opacity: 0; } to { opacity: 1; } }
+@keyframes ink-disperses {
+  to { opacity: 0; transform: translate(var(--drift-x),var(--drift-y)) rotate(var(--turn)); filter: blur(2px); }
+}
+@keyframes unfold-leaf { from { opacity: 0; transform: translateY(7px); } }
+@keyframes fold-leaf { to { opacity: 0; } }
+.still-stage .ink-album .ink-glyph { animation: ink-arrives .2s both; }
+.still-stage .ink-album .ink-leaf { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  .ink-farewell .ink-glyph { animation: ink-arrives .2s both; }
+  .ink-album .ink-leaf { animation: none; }
+}
+.estate-well .well-art, .well-glint { display: block; width: 100%; }
+.well-glint {
+  position: absolute; inset: 0; pointer-events: none;
+  clip-path: polygon(38% 55%,39% 52%,42% 49%,45% 48%,48% 50%,51% 55%,52% 56%,50.5% 64%,49.3% 66%,40% 66%,38.4% 64%);
+  filter: sepia(.7) brightness(1.9); animation: bucket-glimmer 3.8s ease-in-out infinite;
+}
+.well-glint.still { animation: none; opacity: .32; }
+@keyframes bucket-glimmer { 0%,100% { opacity: .08; } 55% { opacity: .52; } }
+.well-bucket {
+  position: absolute; left: 44.8%; top: 58%; transform: translate(-50%,-50%);
+  width: max(15%,calc(32px / var(--photo-scale))); height: max(18%,calc(32px / var(--photo-scale)));
+  pointer-events: auto; padding: 0; border: 0; background: transparent; border-radius: 50%;
+}
+.well-bucket:focus-visible { outline: 1px solid #ffdf9b; }
+.photo-viewport.is-reading .estate-entrances { visibility: hidden; }

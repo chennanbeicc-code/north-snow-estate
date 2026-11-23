@@ -1,0 +1,6 @@
+[
+  {"id":"qq","name":"QQ 邮箱","domains":["qq.com","foxmail.com"],"website":"https://mail.qq.com/","smtpHost":"smtp.qq.com"},
+  {"id":"163","name":"163 邮箱","domains":["163.com"],"website":"https://mail.163.com/","smtpHost":"smtp.163.com"},
+  {"id":"126","name":"126 邮箱","domains":["126.com"],"website":"https://mail.126.com/","smtpHost":"smtp.126.com"},
+  {"id":"gmail","name":"Gmail","domains":["gmail.com","googlemail.com"],"website":"https://mail.google.com/mail/","smtpHost":"smtp.gmail.com"}
+]

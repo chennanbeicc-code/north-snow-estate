@@ -1,0 +1,26 @@
+{
+  "name": "north-spatial-resume",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "build:sites": "tsc --noEmit && vite build --mode sites"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.1.0",
+    "gsap": "^3.13.0",
+    "nodemailer": "^10.6.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@types/three": "^0.180.0",
+    "typescript": "~5.9.2",
+    "vite": "^7.1.0"
+  }
+}
